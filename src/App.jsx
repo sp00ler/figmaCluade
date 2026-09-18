@@ -1,4 +1,5 @@
 import { asset } from './asset.js';
+import { useReveal } from './useReveal.js';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import About from './components/About.jsx';
@@ -14,6 +15,7 @@ import Gallery from './components/Gallery.jsx';
 import Footer from './components/Footer.jsx';
 
 export default function App() {
+  useReveal();
   return (
     <div className="page">
       <img className="decor decor--wave" src={asset('wave.svg')} alt="" aria-hidden="true" />

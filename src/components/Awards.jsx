@@ -10,7 +10,7 @@ const AWARDS = [
 
 export default function Awards() {
   return (
-    <section className="texture section" id="awards">
+    <section className="texture section reveal" id="awards">
       <div className="container awards__inner">
         <div className="awards__left">
           <SubHeading eyebrow="Awards & recognition" title="Our Laurels" />

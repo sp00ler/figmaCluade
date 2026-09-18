@@ -30,6 +30,10 @@ button, input { font: inherit; color: inherit; background: none; border: 0; }
 :focus-visible { outline: 2px solid var(--golden); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
 
+/* ===== Scroll-reveal ===== */
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+
 .page { position: relative; overflow: hidden; }
 .container { width: 100%; max-width: calc(var(--container) + var(--gutter) * 2); margin: 0 auto; padding: 0 var(--gutter); position: relative; z-index: 1; }
 

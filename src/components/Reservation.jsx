@@ -8,7 +8,7 @@ export default function Reservation() {
   const [sent, setSent] = useState(false);
   const today = new Date().toISOString().slice(0, 10);
   return (
-    <section className="section" id="reservation">
+    <section className="section reveal" id="reservation">
       <div className="container">
         <div className="reservation__box">
           <SubHeading eyebrow="Reservations" title="Book A Table" align="center" />

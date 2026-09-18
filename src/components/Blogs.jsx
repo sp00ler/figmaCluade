@@ -9,7 +9,7 @@ const POSTS = [
 
 export default function Blogs() {
   return (
-    <section className="section" id="blog">
+    <section className="section reveal" id="blog">
       <div className="container blogs">
         <SubHeading eyebrow="Blogs" title="Gerícht updates" align="center" />
         <div className="blogs__grid">

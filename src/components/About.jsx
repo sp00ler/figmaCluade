@@ -2,7 +2,7 @@ import { asset } from '../asset.js';
 
 export default function About() {
   return (
-    <section className="texture section" id="about">
+    <section className="texture section reveal" id="about">
       <div className="container about__inner">
         <img className="about__g" src={asset('g-about.svg')} alt="" aria-hidden="true" />
         <div className="about__col about__col--left">

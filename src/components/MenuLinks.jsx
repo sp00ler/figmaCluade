@@ -1,6 +1,6 @@
 export default function MenuLinks() {
   return (
-    <section className="menu-links" id="menu">
+    <section className="menu-links reveal" id="menu">
       <ul className="menu-links__list">
         <li><a href="#special">Bar Menu</a></li>
         <li><a href="#special">Food Menu</a></li>

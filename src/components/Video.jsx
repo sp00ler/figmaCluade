@@ -7,7 +7,7 @@ const VIDEO_URL = '';
 export default function Video() {
   const [playing, setPlaying] = useState(false);
   return (
-    <section className="video" id="video">
+    <section className="video reveal" id="video">
       {playing && VIDEO_URL ? (
         <iframe className="video__frame" src={VIDEO_URL} title="Gericht video" allow="autoplay; fullscreen" />
       ) : (

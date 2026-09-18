@@ -11,7 +11,7 @@ const PEOPLE = [
 
 export default function Testimony() {
   return (
-    <section className="section" id="testimony">
+    <section className="section reveal" id="testimony">
       <div className="container testimony">
         <SubHeading eyebrow="Testimony" title="Happy customers" align="center" />
         <div className="testimony__grid">

@@ -3,7 +3,7 @@ import SubHeading from './SubHeading.jsx';
 
 export default function ChefWord() {
   return (
-    <section className="texture section" id="chef">
+    <section className="texture section reveal" id="chef">
       <div className="container chef__inner">
         <div className="chef__img">
           <img src={asset('chef.jpg')} alt="Шеф Kevin Luo" />

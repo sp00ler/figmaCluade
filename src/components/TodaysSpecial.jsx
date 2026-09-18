@@ -38,7 +38,7 @@ function MenuCol({ title, items }) {
 
 export default function TodaysSpecial() {
   return (
-    <section className="section" id="special">
+    <section className="section reveal" id="special">
       <div className="container special">
         <SubHeading eyebrow="Menu that fits you palatte" title="Today’s Special" align="center" />
         <div className="special__grid">

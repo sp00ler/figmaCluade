@@ -3,7 +3,7 @@ import SubHeading from './SubHeading.jsx';
 
 export default function Gallery() {
   return (
-    <section className="texture section" id="gallery">
+    <section className="texture section reveal" id="gallery">
       <div className="gallery__inner">
         <div className="gallery__text">
           <SubHeading eyebrow="Instagram" title="Photo Gallery" />

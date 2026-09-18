@@ -3,7 +3,7 @@ import SubHeading from './SubHeading.jsx';
 
 export default function Footer() {
   return (
-    <footer className="footer" id="contact-us">
+    <footer className="footer reveal" id="contact-us">
       <div className="footer__bg" aria-hidden="true" />
       <div className="container">
         <div className="newsletter">
