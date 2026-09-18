@@ -3,12 +3,12 @@ import SubHeading from './SubHeading.jsx';
 
 export default function ChefWord() {
   return (
-    <section className="texture section reveal" id="chef">
+    <section className="texture section" id="chef">
       <div className="container chef__inner">
-        <div className="chef__img">
+        <div className="chef__img" data-reveal="clip-v">
           <img src={asset('chef.jpg')} alt="Шеф Kevin Luo" />
         </div>
-        <div className="chef__content">
+        <div className="chef__content" data-reveal="up">
           <SubHeading eyebrow="Chef’s Word" title="What we believe in" />
           <div>
             <div className="chef__quote">

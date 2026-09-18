@@ -16,13 +16,13 @@ const COCKTAILS = [
   ['Negroni', '$26', 'Gin | Sweet Vermouth | Campari | Orange garnish'],
 ];
 
-function MenuCol({ title, items }) {
+function MenuCol({ title, items, dir }) {
   return (
     <div className="special__col">
       <h3 className="h3">{title}</h3>
       <ul className="special__list">
-        {items.map(([name, price, tags]) => (
-          <li className="dish" key={name}>
+        {items.map(([name, price, tags], i) => (
+          <li className="dish" key={name} data-reveal={dir} style={{ '--i': i }}>
             <div className="dish__row">
               <span className="dish__name">{name}</span>
               <span className="dish__rule" aria-hidden="true" />
@@ -38,13 +38,13 @@ function MenuCol({ title, items }) {
 
 export default function TodaysSpecial() {
   return (
-    <section className="section reveal" id="special">
+    <section className="section" id="special">
       <div className="container special">
         <SubHeading eyebrow="Menu that fits you palatte" title="Today’s Special" align="center" />
         <div className="special__grid">
-          <MenuCol title="Wine & Beer" items={WINES} />
-          <img className="special__img" src={asset('special.jpg')} alt="Коктейль у барной стойки" />
-          <MenuCol title="Cocktails" items={COCKTAILS} />
+          <MenuCol title="Wine & Beer" items={WINES} dir="left" />
+          <img className="special__img" src={asset('special.jpg')} alt="Коктейль у барной стойки" data-reveal="clip-v" />
+          <MenuCol title="Cocktails" items={COCKTAILS} dir="right" />
         </div>
         <a className="btn" href="#special">View More</a>
       </div>

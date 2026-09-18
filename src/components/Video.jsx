@@ -7,11 +7,11 @@ const VIDEO_URL = '';
 export default function Video() {
   const [playing, setPlaying] = useState(false);
   return (
-    <section className="video reveal" id="video">
+    <section className="video" id="video">
       {playing && VIDEO_URL ? (
         <iframe className="video__frame" src={VIDEO_URL} title="Gericht video" allow="autoplay; fullscreen" />
       ) : (
-        <button className="video__play" onClick={() => setPlaying(true)} aria-label="Смотреть видео">
+        <button className="video__play" data-reveal="scale" onClick={() => setPlaying(true)} aria-label="Смотреть видео">
           <img src={asset('play.svg')} alt="" />
         </button>
       )}

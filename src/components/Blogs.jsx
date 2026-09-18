@@ -9,12 +9,12 @@ const POSTS = [
 
 export default function Blogs() {
   return (
-    <section className="section reveal" id="blog">
+    <section className="section" id="blog">
       <div className="container blogs">
         <SubHeading eyebrow="Blogs" title="Gerícht updates" align="center" />
         <div className="blogs__grid">
-          {POSTS.map(([date, author, title, img]) => (
-            <article className="post" key={title}>
+          {POSTS.map(([date, author, title, img], i) => (
+            <article className="post" key={title} data-reveal={['left', 'up', 'right'][i]}>
               <img className="post__img" src={asset(img)} alt={title} loading="lazy" />
               <div className="post__meta">
                 <span className="p p--white">{date}</span>

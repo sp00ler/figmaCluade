@@ -28,11 +28,27 @@ img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button, input { font: inherit; color: inherit; background: none; border: 0; }
 :focus-visible { outline: 2px solid var(--golden); outline-offset: 3px; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
 
-/* ===== Scroll-reveal ===== */
-.reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.reveal.is-visible { opacity: 1; transform: none; }
+/* ===== Motion ===== */
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Applied by useReveal.js only — element is fully visible with no JS.
+   [data-reveal] doubles the selector so this always outranks a plain
+   single-class `transition` rule already on the target (e.g. .video__play),
+   regardless of source order. */
+[data-reveal].reveal-el {
+  transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo), clip-path 0.55s var(--ease-out-expo);
+  transition-delay: calc(var(--i, 0) * 55ms);
+  will-change: opacity, transform;
+}
+
+/* ===== Hero load-in (plays once, no JS/observer) ===== */
+@keyframes hero-in { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.hero-in { animation: hero-in 0.6s var(--ease-out-expo) backwards; animation-delay: calc(var(--i, 0) * 90ms); }
 
 .page { position: relative; overflow: hidden; }
 .container { width: 100%; max-width: calc(var(--container) + var(--gutter) * 2); margin: 0 auto; padding: 0 var(--gutter); position: relative; z-index: 1; }

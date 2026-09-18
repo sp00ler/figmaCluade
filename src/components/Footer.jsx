@@ -3,10 +3,10 @@ import SubHeading from './SubHeading.jsx';
 
 export default function Footer() {
   return (
-    <footer className="footer reveal" id="contact-us">
+    <footer className="footer" id="contact-us">
       <div className="footer__bg" aria-hidden="true" />
       <div className="container">
-        <div className="newsletter">
+        <div className="newsletter" data-reveal="up">
           <div className="newsletter__head">
             <SubHeading eyebrow="Newsletter" title="Subscribe to Our Newsletter" align="center" />
             <p className="p p--white">And never miss latest Updates!</p>

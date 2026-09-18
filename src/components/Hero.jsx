@@ -8,14 +8,14 @@ export default function Hero() {
       <div className="container hero__inner">
         <div className="hero__content">
           <div className="hero__heading">
-            <p className="h5">Chase the new Flavour</p>
+            <p className="h5 hero-in" style={{ '--i': 0 }}>Chase the new Flavour</p>
             <img className="spoon" src={asset('spoon.svg')} alt="" aria-hidden="true" />
-            <h1 className="h1">The key to Fine dining</h1>
+            <h1 className="h1 hero-in" style={{ '--i': 1 }}>The key to Fine dining</h1>
           </div>
-          <p className="p">Sit tellus lobortis sed senectus vivamus molestie. Condimentum volutpat morbi facilisis quam scelerisque sapien. Et, penatibus aliquam amet tellus</p>
-          <a className="btn" href="#menu">Explore Menu</a>
+          <p className="p hero-in" style={{ '--i': 2 }}>Sit tellus lobortis sed senectus vivamus molestie. Condimentum volutpat morbi facilisis quam scelerisque sapien. Et, penatibus aliquam amet tellus</p>
+          <a className="btn hero-in" style={{ '--i': 3 }} href="#menu">Explore Menu</a>
         </div>
-        <div className="hero__img">
+        <div className="hero__img hero-in" style={{ '--i': 1.5 }}>
           <img src={asset('hero.jpg')} alt="Запечённый лосось с лимоном и орегано" />
         </div>
       </div>

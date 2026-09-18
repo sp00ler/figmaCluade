@@ -11,12 +11,12 @@ const PEOPLE = [
 
 export default function Testimony() {
   return (
-    <section className="section reveal" id="testimony">
+    <section className="section" id="testimony">
       <div className="container testimony">
         <SubHeading eyebrow="Testimony" title="Happy customers" align="center" />
         <div className="testimony__grid">
-          {PEOPLE.map(([name, role, img]) => (
-            <figure className="review" key={name}>
+          {PEOPLE.map(([name, role, img], i) => (
+            <figure className="review" key={name} data-reveal="scale" style={{ '--i': i }}>
               <div className="review__avatar">
                 <img src={asset(img)} alt={name} />
                 <img className="review__q" src={asset('quote.svg')} alt="" aria-hidden="true" />

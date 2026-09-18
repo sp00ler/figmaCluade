@@ -3,16 +3,16 @@ import SubHeading from './SubHeading.jsx';
 
 export default function Gallery() {
   return (
-    <section className="texture section reveal" id="gallery">
+    <section className="texture section" id="gallery">
       <div className="gallery__inner">
-        <div className="gallery__text">
+        <div className="gallery__text" data-reveal="up">
           <SubHeading eyebrow="Instagram" title="Photo Gallery" />
           <p className="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat mattis ipsum turpis elit elit scelerisque egestas mu.</p>
           <a className="btn" href="#gallery">View More</a>
         </div>
         <div className="gallery__track">
           {[1, 2, 3, 4, 5].map((i) => (
-            <a className="shot" key={i} href="#gallery" aria-label={`Фото ${i} в Instagram`}>
+            <a className="shot" key={i} href="#gallery" aria-label={`Фото ${i} в Instagram`} data-reveal="clip-h" style={{ '--i': i - 1 }}>
               <img src={asset(`gallery-${i}.jpg`)} alt="" loading="lazy" />
               <span className="shot__hover"><img src={asset('instagram.svg')} alt="" /></span>
             </a>

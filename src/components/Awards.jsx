@@ -10,13 +10,13 @@ const AWARDS = [
 
 export default function Awards() {
   return (
-    <section className="texture section reveal" id="awards">
+    <section className="texture section" id="awards">
       <div className="container awards__inner">
         <div className="awards__left">
           <SubHeading eyebrow="Awards & recognition" title="Our Laurels" />
           <div className="awards__grid">
-            {AWARDS.map(([title, icon]) => (
-              <div className="award" key={title}>
+            {AWARDS.map(([title, icon], i) => (
+              <div className="award" key={title} data-reveal="rotate" style={{ '--i': i }}>
                 <img src={asset(icon)} alt="" aria-hidden="true" />
                 <div className="award__text">
                   <p className="award__title">{title}</p>
@@ -26,7 +26,7 @@ export default function Awards() {
             ))}
           </div>
         </div>
-        <div className="awards__img">
+        <div className="awards__img" data-reveal="clip-h">
           <img className="photo" src={asset('awards.jpg')} alt="Бокалы с вином" />
           <img className="g" src={asset('g-awards.svg')} alt="" aria-hidden="true" />
         </div>
