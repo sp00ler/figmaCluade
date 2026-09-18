@@ -16,7 +16,7 @@ export default function Awards() {
           <SubHeading eyebrow="Awards & recognition" title="Our Laurels" />
           <div className="awards__grid">
             {AWARDS.map(([title, icon], i) => (
-              <div className="award" key={title} data-reveal="clip-v" style={{ '--i': i }}>
+              <div className="award" key={title} data-reveal="clip-h" style={{ '--i': i }}>
                 <img src={asset(icon)} alt="" aria-hidden="true" />
                 <div className="award__text">
                   <p className="award__title">{title}</p>

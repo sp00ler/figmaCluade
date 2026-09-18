@@ -14,7 +14,7 @@ export default function Blogs() {
         <SubHeading eyebrow="Blogs" title="Gerícht updates" align="center" />
         <div className="blogs__grid">
           {POSTS.map(([date, author, title, img], i) => (
-            <article className="post" key={title} data-reveal="clip-v" style={{ '--i': i }}>
+            <article className="post" key={title} data-reveal="clip-h" style={{ '--i': i }}>
               <img className="post__img" src={asset(img)} alt={title} loading="lazy" />
               <div className="post__meta">
                 <span className="p p--white">{date}</span>

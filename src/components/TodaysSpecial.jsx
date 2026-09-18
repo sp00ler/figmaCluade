@@ -22,7 +22,7 @@ function MenuCol({ title, items }) {
       <h3 className="h3">{title}</h3>
       <ul className="special__list">
         {items.map(([name, price, tags], i) => (
-          <li className="dish" key={name} data-reveal="clip-v" style={{ '--i': i }}>
+          <li className="dish" key={name} data-reveal="clip-h" style={{ '--i': i }}>
             <div className="dish__row">
               <span className="dish__name">{name}</span>
               <span className="dish__rule" aria-hidden="true" />
@@ -43,7 +43,7 @@ export default function TodaysSpecial() {
         <SubHeading eyebrow="Menu that fits you palatte" title="Today’s Special" align="center" />
         <div className="special__grid">
           <MenuCol title="Wine & Beer" items={WINES} />
-          <img className="special__img" src={asset('special.jpg')} alt="Коктейль у барной стойки" data-reveal="clip-v" data-parallax="drift" />
+          <img className="special__img" src={asset('special.jpg')} alt="Коктейль у барной стойки" data-reveal="clip-h" data-parallax="drift" />
           <MenuCol title="Cocktails" items={COCKTAILS} />
         </div>
         <a className="btn" href="#special">View More</a>

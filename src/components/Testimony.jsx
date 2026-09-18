@@ -16,7 +16,7 @@ export default function Testimony() {
         <SubHeading eyebrow="Testimony" title="Happy customers" align="center" />
         <div className="testimony__grid">
           {PEOPLE.map(([name, role, img], i) => (
-            <figure className="review" key={name} data-reveal="clip-v" style={{ '--i': i }}>
+            <figure className="review" key={name} data-reveal="clip-h" style={{ '--i': i }}>
               <div className="review__avatar">
                 <img src={asset(img)} alt={name} />
                 <img className="review__q" src={asset('quote.svg')} alt="" aria-hidden="true" />

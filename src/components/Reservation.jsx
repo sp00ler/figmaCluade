@@ -10,7 +10,7 @@ export default function Reservation() {
   return (
     <section className="section" id="reservation">
       <div className="container">
-        <div className="reservation__box" data-reveal="clip-v">
+        <div className="reservation__box" data-reveal="clip-h">
           <SubHeading eyebrow="Reservations" title="Book A Table" align="center" />
           <div className="reservation__fields">
             <label className="field">

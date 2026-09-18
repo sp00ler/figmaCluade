@@ -5,7 +5,7 @@ export default function Gallery() {
   return (
     <section className="texture section" id="gallery">
       <div className="gallery__inner">
-        <div className="gallery__text" data-reveal="clip-v">
+        <div className="gallery__text" data-reveal="clip-h">
           <SubHeading eyebrow="Instagram" title="Photo Gallery" />
           <p className="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat mattis ipsum turpis elit elit scelerisque egestas mu.</p>
           <a className="btn" href="#gallery">View More</a>

@@ -65,7 +65,7 @@ button, input { font: inherit; color: inherit; background: none; border: 0; }
   [data-reveal] {
     animation-duration: 1ms; /* normalized against animation-range, not real time */
     animation-fill-mode: both;
-    animation-timing-function: var(--ease-out-expo);
+    animation-timing-function: linear;
     animation-timeline: view();
     animation-range: cover 0% cover 40%;
     animation-delay: calc(var(--i, 0) * 3%);
@@ -92,7 +92,7 @@ button, input { font: inherit; color: inherit; background: none; border: 0; }
     animation-name: sr-clip-v, sr-drift;
     animation-duration: 1ms, 1ms;
     animation-fill-mode: both, both;
-    animation-timing-function: var(--ease-out-expo), linear;
+    animation-timing-function: linear, linear;
     animation-timeline: view(), view();
     animation-range: cover 0% cover 40%, cover 0% cover 100%;
   }
@@ -100,7 +100,7 @@ button, input { font: inherit; color: inherit; background: none; border: 0; }
     animation-name: sr-clip-h, sr-drift;
     animation-duration: 1ms, 1ms;
     animation-fill-mode: both, both;
-    animation-timing-function: var(--ease-out-expo), linear;
+    animation-timing-function: linear, linear;
     animation-timeline: view(), view();
     animation-range: cover 0% cover 40%, cover 0% cover 100%;
   }
