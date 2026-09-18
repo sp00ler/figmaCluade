@@ -26,7 +26,7 @@ export default function Awards() {
             ))}
           </div>
         </div>
-        <div className="awards__img" data-reveal="clip-h">
+        <div className="awards__img" data-reveal="clip-h" data-parallax="drift">
           <img className="photo" src={asset('awards.jpg')} alt="Бокалы с вином" />
           <img className="g" src={asset('g-awards.svg')} alt="" aria-hidden="true" />
         </div>

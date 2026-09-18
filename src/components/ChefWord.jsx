@@ -5,7 +5,7 @@ export default function ChefWord() {
   return (
     <section className="texture section" id="chef">
       <div className="container chef__inner">
-        <div className="chef__img" data-reveal="clip-v">
+        <div className="chef__img" data-reveal="clip-v" data-parallax="drift">
           <img src={asset('chef.jpg')} alt="Шеф Kevin Luo" />
         </div>
         <div className="chef__content" data-reveal="up">

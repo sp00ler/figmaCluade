@@ -13,7 +13,7 @@ export default function About() {
           <p className="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis pharetra adipiscing ultrices vulputate posuere tristique. In sed odio nec aliquet eu proin mauris et.</p>
           <a className="btn" href="#about">Know More</a>
         </div>
-        <img className="about__knife" src={asset('knife.png')} alt="Нож шефа" data-reveal="clip-v" />
+        <img className="about__knife" src={asset('knife.png')} alt="Нож шефа" data-reveal="clip-v" data-parallax="drift" />
         <div className="about__col" data-reveal="right">
           <div className="subheading">
             <h2 className="h2">Our History</h2>

@@ -36,17 +36,62 @@ button, input { font: inherit; color: inherit; background: none; border: 0; }
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Applied by useReveal.js only — element is fully visible with no JS.
-   [data-reveal] doubles the selector so this always outranks a plain
-   single-class `transition` rule already on the target (e.g. .video__play),
-   regardless of source order. */
+/* Fallback only (no native scroll-timeline support): applied by useReveal.js.
+   Element is fully visible with no JS — this only ever adds a temporary
+   hidden inline style. [data-reveal] doubles the selector so it always
+   outranks a plain single-class `transition` rule already on the target
+   (e.g. .video__play), regardless of source order. */
 [data-reveal].reveal-el {
   transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo), clip-path 0.55s var(--ease-out-expo);
   transition-delay: calc(var(--i, 0) * 55ms);
   will-change: opacity, transform;
 }
 
-/* ===== Hero load-in (plays once, no JS/observer) ===== */
+/* ===== Scroll-linked motion (primary path) =====
+   animation-timeline: view() ties progress directly to scroll position —
+   it scrubs both ways and never "freezes" after playing once, unlike a
+   one-shot IntersectionObserver trigger. useReveal.js no-ops entirely
+   when this is supported. */
+@keyframes sr-up     { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+@keyframes sr-left   { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: none; } }
+@keyframes sr-right  { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: none; } }
+@keyframes sr-scale  { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: none; } }
+@keyframes sr-rotate { from { opacity: 0; transform: rotate(-7deg) scale(0.85); } to { opacity: 1; transform: none; } }
+@keyframes sr-clip-v { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes sr-clip-h { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes sr-drift  { from { transform: translateY(-28px); } to { transform: translateY(28px); } }
+
+@supports (animation-timeline: view()) {
+  [data-reveal] {
+    animation-duration: 1ms; /* normalized against animation-range, not real time */
+    animation-fill-mode: both;
+    animation-timing-function: var(--ease-out-expo);
+    animation-timeline: view();
+    animation-range: entry 0% cover 38%;
+    animation-delay: calc(var(--i, 0) * 4%);
+  }
+  [data-reveal="up"]      { animation-name: sr-up; }
+  [data-reveal="left"]    { animation-name: sr-left; }
+  [data-reveal="right"]   { animation-name: sr-right; }
+  [data-reveal="scale"]   { animation-name: sr-scale; }
+  [data-reveal="rotate"]  { animation-name: sr-rotate; }
+  [data-reveal="clip-v"]  { animation-name: sr-clip-v; animation-range: entry 0% cover 45%; }
+  [data-reveal="clip-h"]  { animation-name: sr-clip-h; animation-range: entry 0% cover 45%; }
+
+  /* continuous parallax drift, independent of the entrance animation above
+     (only paired with clip-path treatments so both can animate at once —
+     they touch different properties, no composition conflict) */
+  [data-parallax="drift"] {
+    animation-name: sr-drift;
+    animation-duration: 1ms;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+}
+
+/* ===== Hero load-in (plays once on page load, no JS/observer) ===== */
 @keyframes hero-in { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
 .hero-in { animation: hero-in 0.6s var(--ease-out-expo) backwards; animation-delay: calc(var(--i, 0) * 90ms); }
 

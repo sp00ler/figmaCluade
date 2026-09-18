@@ -16,6 +16,12 @@ const HIDDEN_STYLE = {
 
 export function useReveal() {
   useLayoutEffect(() => {
+    // Primary path is pure CSS (animation-timeline: view()) — scroll-linked,
+    // scrubs both directions, never needs JS. Only step in as a fallback.
+    const nativeScrollLinked =
+      typeof CSS !== 'undefined' && CSS.supports?.('animation-timeline: view()');
+    if (nativeScrollLinked) return;
+
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const els = Array.from(document.querySelectorAll('[data-reveal]'));
     if (reduceMotion || !('IntersectionObserver' in window) || els.length === 0) return;

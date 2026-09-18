@@ -43,7 +43,7 @@ export default function TodaysSpecial() {
         <SubHeading eyebrow="Menu that fits you palatte" title="Today’s Special" align="center" />
         <div className="special__grid">
           <MenuCol title="Wine & Beer" items={WINES} dir="left" />
-          <img className="special__img" src={asset('special.jpg')} alt="Коктейль у барной стойки" data-reveal="clip-v" />
+          <img className="special__img" src={asset('special.jpg')} alt="Коктейль у барной стойки" data-reveal="clip-v" data-parallax="drift" />
           <MenuCol title="Cocktails" items={COCKTAILS} dir="right" />
         </div>
         <a className="btn" href="#special">View More</a>
