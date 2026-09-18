@@ -69,6 +69,11 @@ button, input { font: inherit; color: inherit; background: none; border: 0; }
     animation-timeline: view();
     animation-range: cover 0% cover 40%;
     animation-delay: calc(var(--i, 0) * 3%);
+    /* clip-path scroll-linked animations can compute correctly (verified via
+       getComputedStyle) while never actually repainting on some engines —
+       will-change forces the browser to keep compositing/painting this
+       property every frame instead of treating it as static. */
+    will-change: opacity, transform, clip-path;
   }
   [data-reveal="up"]      { animation-name: sr-up; }
   [data-reveal="left"]    { animation-name: sr-left; }
