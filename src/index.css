@@ -23,7 +23,7 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--white); font-family: var(--sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body { background: var(--bg); color: var(--white); font-family: var(--sans); -webkit-font-smoothing: antialiased; overflow-x: clip; }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button, input { font: inherit; color: inherit; background: none; border: 0; }
@@ -78,16 +78,26 @@ button, input { font: inherit; color: inherit; background: none; border: 0; }
   [data-reveal="clip-v"]  { animation-name: sr-clip-v; animation-range: entry 0% cover 45%; }
   [data-reveal="clip-h"]  { animation-name: sr-clip-h; animation-range: entry 0% cover 45%; }
 
-  /* continuous parallax drift, independent of the entrance animation above
-     (only paired with clip-path treatments so both can animate at once —
-     they touch different properties, no composition conflict) */
-  [data-parallax="drift"] {
-    animation-name: sr-drift;
-    animation-duration: 1ms;
-    animation-fill-mode: both;
-    animation-timing-function: linear;
-    animation-timeline: view();
-    animation-range: cover 0% cover 100%;
+  /* Elements that ALSO drift need every animation-* property redeclared as a
+     matching comma-list (entrance, drift) on one higher-specificity rule —
+     longhand animation-* properties don't merge across separate selectors;
+     the later single-attribute rule would just replace the earlier one's
+     values outright and the entrance animation would silently never play. */
+  [data-reveal="clip-v"][data-parallax="drift"] {
+    animation-name: sr-clip-v, sr-drift;
+    animation-duration: 1ms, 1ms;
+    animation-fill-mode: both, both;
+    animation-timing-function: var(--ease-out-expo), linear;
+    animation-timeline: view(), view();
+    animation-range: entry 0% cover 45%, cover 0% cover 100%;
+  }
+  [data-reveal="clip-h"][data-parallax="drift"] {
+    animation-name: sr-clip-h, sr-drift;
+    animation-duration: 1ms, 1ms;
+    animation-fill-mode: both, both;
+    animation-timing-function: var(--ease-out-expo), linear;
+    animation-timeline: view(), view();
+    animation-range: entry 0% cover 45%, cover 0% cover 100%;
   }
 }
 
@@ -95,7 +105,12 @@ button, input { font: inherit; color: inherit; background: none; border: 0; }
 @keyframes hero-in { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
 .hero-in { animation: hero-in 0.6s var(--ease-out-expo) backwards; animation-delay: calc(var(--i, 0) * 90ms); }
 
-.page { position: relative; overflow: hidden; }
+/* overflow: clip (not hidden) — hidden establishes a scroll container even
+   though .page never actually scrolls, which breaks every descendant's
+   animation-timeline: view() (it binds to the nearest scroll container,
+   here .page, whose scrollable range is always zero since it exactly fits
+   its own content — the animation range collapses and nothing animates). */
+.page { position: relative; overflow: clip; }
 .container { width: 100%; max-width: calc(var(--container) + var(--gutter) * 2); margin: 0 auto; padding: 0 var(--gutter); position: relative; z-index: 1; }
 
 /* ===== Типографика ===== */
@@ -271,7 +286,7 @@ button, input { font: inherit; color: inherit; background: none; border: 0; }
 /* ===== Gallery ===== */
 .gallery__inner { display: flex; align-items: center; gap: 64px; padding-left: max(var(--gutter), calc((100vw - var(--container)) / 2)); }
 .gallery__text { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; width: 491px; flex-shrink: 0; }
-.gallery__track { display: flex; gap: 32px; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory; padding-right: var(--gutter); }
+.gallery__track { display: flex; gap: 32px; overflow-x: auto; overflow-y: clip; scrollbar-width: none; scroll-snap-type: x mandatory; padding-right: var(--gutter); }
 .gallery__track::-webkit-scrollbar { display: none; }
 .shot { position: relative; width: 301px; height: 447px; flex-shrink: 0; scroll-snap-align: start; }
 .shot img:first-child { width: 100%; height: 100%; object-fit: cover; }
