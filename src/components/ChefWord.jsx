@@ -8,7 +8,7 @@ export default function ChefWord() {
         <div className="chef__img" data-reveal="clip-v" data-parallax="drift">
           <img src={asset('chef.jpg')} alt="Шеф Kevin Luo" />
         </div>
-        <div className="chef__content" data-reveal="up">
+        <div className="chef__content" data-reveal="clip-v">
           <SubHeading eyebrow="Chef’s Word" title="What we believe in" />
           <div>
             <div className="chef__quote">

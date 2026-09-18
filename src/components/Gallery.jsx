@@ -5,7 +5,7 @@ export default function Gallery() {
   return (
     <section className="texture section" id="gallery">
       <div className="gallery__inner">
-        <div className="gallery__text" data-reveal="up">
+        <div className="gallery__text" data-reveal="clip-v">
           <SubHeading eyebrow="Instagram" title="Photo Gallery" />
           <p className="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat mattis ipsum turpis elit elit scelerisque egestas mu.</p>
           <a className="btn" href="#gallery">View More</a>
@@ -17,7 +17,7 @@ export default function Gallery() {
             scrolling box, the vertical (block-axis) scroll range inside it
             is zero, so a per-shot view-timeline degenerates to permanently
             "fully revealed" and never animates. */}
-        <div className="gallery__track" data-reveal="up">
+        <div className="gallery__track" data-reveal="clip-h">
           {[1, 2, 3, 4, 5].map((i) => (
             <a className="shot" key={i} href="#gallery" aria-label={`Фото ${i} в Instagram`}>
               <img src={asset(`gallery-${i}.jpg`)} alt="" loading="lazy" />

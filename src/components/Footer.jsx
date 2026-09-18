@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="footer" id="contact-us">
       <div className="footer__bg" aria-hidden="true" />
       <div className="container">
-        <div className="newsletter" data-reveal="up">
+        <div className="newsletter" data-reveal="clip-v">
           <div className="newsletter__head">
             <SubHeading eyebrow="Newsletter" title="Subscribe to Our Newsletter" align="center" />
             <p className="p p--white">And never miss latest Updates!</p>
